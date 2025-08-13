@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swift Earnings — Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <script>
+    function creditDaily(){
+      const u = getUser();
+      if(!u) return alert('Please log in');
+      u.balance = (u.balance||0) + 1000;
+      setUser(u);
+      localStorage.setItem('se_balance', u.balance);
+      document.getElementById('balance').textContent = currency(u.balance);
+      alert('Credited ₦1,000 (demo). Remember: payouts are at month end.');
+    }
+  </script>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-inner container">
+      <div class="brand"><span class="logo"></span> Swift Earnings</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="fund.html">Fund Account</a>
+        <a href="packages.html">Packages</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Dashboard</h1>
+    <div class="grid cards">
+      <div class="card">
+        <span class="badge">User</span>
+        <h3 id="username">Guest</h3>
+        <p class="small">Your registered name</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Account Balance</span>
+        <div class="kpi" id="balance">₦0</div>
+        <p class="small">
+          <b>₦1,000 is credited daily.</b> Withdrawals are processed <b>at the end of each month</b>.
+        </p>
+        <button class="btn" onclick="creditDaily()">Demo: Credit ₦1,000</button>
+      </div>
+
+      <div class="card">
+        <span class="badge">Payout Schedule</span>
+        <h3 id="withdrawalDate">Next Withdrawal: —</h3>
+        <p class="small">Plan ahead — your next payout date is the last day of this month.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="btn secondary" href="fund.html">Fund Account</a>
+          <a class="btn secondary" href="packages.html">View Packages</a>
+          <button class="btn" onclick="signOut()">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer small">
+    © 2025 Swift Earnings — Demo only. Month-end withdrawals policy applies.
+  </div>
+  <div class="whatsapp">
+    <a target="_blank" rel="noopener" href="https://wa.me/2348109898824">WhatsApp Help</a>
+  </div>
+
+  <script>
+    // Show last day of current month
+    (function(){
+      const d = new Date();
+      const last = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+      const el = document.getElementById('withdrawalDate');
+      if (el) el.textContent = 'Next Withdrawal: ' + last.toDateString();
+    })();
+  </script>
+</body>
+</html>
