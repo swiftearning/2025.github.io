@@ -2,54 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swift Earnings — Fund Account</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fund Account — Swift Earnings</title>
+  <style>
+    :root{--bg:#000;--card:#111;--gold:#b88900;--accent:red;--muted:#cfcfcf}
+    body{background:var(--bg); color:var(--muted); font-family: Inter, Arial, sans-serif; margin:0; padding:0}
+    .container{max-width:900px; margin:36px auto; padding:0 18px}
+    .card{background:var(--card); border-radius:12px; padding:28px; border:1px solid rgba(255,255,255,0.03)}
+    h1{color:var(--accent); text-align:center; margin:0 0 8px}
+    .bank p{margin:8px 0}
+    .label{color:var(--gold); font-weight:700}
+    .actions{margin-top:18px; text-align:center}
+    .wa{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;border:1px solid var(--gold);color:var(--gold);font-weight:600}
+    .copy{margin-left:10px;background:var(--gold); color:#000; padding:9px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:700}
+  </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="nav-inner container">
-      <div class="brand"><span class="logo"></span> Swift Earnings</div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="signup.html">Sign Up</a>
-        <a href="login.html">Login</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="fund.html">Fund Account</a>
-        <a href="packages.html">Packages</a>
+  <!-- header/nav - replace with your actual nav -->
+  <header style="padding:18px 0; text-align:center;">
+    <nav>
+      <a href="index.html" style="color:var(--muted); text-decoration:none; margin-right:12px;">Home</a>
+      <a href="fund.html" style="color:var(--muted); text-decoration:underline;">Fund Account</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>💳 Fund Your Account</h1>
+      <p style="text-align:center; color:#ddd; margin-bottom:12px;">
+        Activate your Swift Earnings membership with a one-time payment — details below.
+      </p>
+
+      <div class="bank">
+        <p><span class="label">Bank Name:</span> Palmpay</p>
+        <p><span class="label">Account Name:</span> CECILIA EDET MONDAY</p>
+        <p><span class="label">Account Number:</span> 8109898824</p>
+        <p><span class="label">Payment Reference:</span> <em>Swift Earnings Activation – YourUsername</em></p>
       </div>
-    </div>
-  </div>
 
-  <div class="container">
-    <h1>Fund Account</h1>
-    <p>
-      Activate your account with a one-time payment of <b>₦6,000</b>.
-      From there, you accrue <b>₦1,000 daily</b> and receive a consolidated payout <b>at month end</b>.
-    </p>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/2348109898824" target="_blank" rel="noopener">Send proof on WhatsApp</a>
+        <button class="copy" onclick="copyAccount()">Copy account</button>
+      </div>
+    </section>
+  </main>
 
-    <div class="card">
-      <h3>Payment Instructions</h3>
-      <ol>
-        <li>Transfer exactly ₦6,000 to the account below.</li>
-        <li>Send proof of payment to WhatsApp and include your full name.</li>
-        <li>Your account will reflect payment once confirmed (demo).</li>
-      </ol>
-      <p><b>Bank:</b> Your Bank Name<br/>
-         <b>Account Name:</b> Swift Earnings NG<br/>
-         <b>Account Number:</b> 0000000000</p>
-      <a class="btn" target="_blank" rel="noopener" href="https://wa.me/2348109898824">Message us on WhatsApp</a>
-    </div>
-
-    <div class="notice small">
-      This site is a static GitHub Pages demo. Replace payment details and connect a real backend for production.
-    </div>
-  </div>
-
-  <div class="footer small">© 2025 Swift Earnings — Demo only.</div>
-  <div class="whatsapp">
-    <a target="_blank" rel="noopener" href="https://wa.me/2348109898824">WhatsApp Help</a>
-  </div>
+  <script>
+    function copyAccount(){
+      const text = 'Palmpay | CECILIA EDET MONDAY | 8109898824';
+      navigator.clipboard.writeText(text).then(()=>{ alert('Account details copied!'); })
+      .catch(()=>{ alert('Copy failed — long-press the account number to copy manually.') });
+    }
+  </script>
 </body>
 </html>
