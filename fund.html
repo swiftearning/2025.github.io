@@ -2,57 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fund Account — Swift Earnings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fund Account – Swift Earnings</title>
   <style>
-    :root{--bg:#000;--card:#111;--gold:#b88900;--accent:red;--muted:#cfcfcf}
-    body{background:var(--bg); color:var(--muted); font-family: Inter, Arial, sans-serif; margin:0; padding:0}
-    .container{max-width:900px; margin:36px auto; padding:0 18px}
-    .card{background:var(--card); border-radius:12px; padding:28px; border:1px solid rgba(255,255,255,0.03)}
-    h1{color:var(--accent); text-align:center; margin:0 0 8px}
-    .bank p{margin:8px 0}
-    .label{color:var(--gold); font-weight:700}
-    .actions{margin-top:18px; text-align:center}
-    .wa{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;border:1px solid var(--gold);color:var(--gold);font-weight:600}
-    .copy{margin-left:10px;background:var(--gold); color:#000; padding:9px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:700}
+    body{margin:0;font-family:Arial;background:#000;color:#fff}
+    header{background:#111;padding:15px;text-align:center}
+    nav a{color:gold;margin:0 10px;text-decoration:none;font-weight:600}
+    nav a:hover{color:red}
+    section{padding:30px;max-width:720px;margin:auto}
+    .card{background:#111;padding:20px;border-radius:12px}
+    .label{color:gold;font-weight:600}
+    .wa{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:8px;
+      border:1px solid gold;color:gold;text-decoration:none}
+    .wa:hover{background:gold;color:#000}
   </style>
 </head>
 <body>
-  <!-- header/nav - replace with your actual nav -->
-  <header style="padding:18px 0; text-align:center;">
+  <header>
     <nav>
-      <a href="index.html" style="color:var(--muted); text-decoration:none; margin-right:12px;">Home</a>
-      <a href="fund.html" style="color:var(--muted); text-decoration:underline;">Fund Account</a>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="fund.html">Fund Account</a>
+      <a href="packages.html">Packages</a>
     </nav>
   </header>
 
-  <main class="container">
-    <section class="card">
-      <h1>💳 Fund Your Account</h1>
-      <p style="text-align:center; color:#ddd; margin-bottom:12px;">
-        Activate your Swift Earnings membership with a one-time payment — details below.
-      </p>
-
-      <div class="bank">
-        <p><span class="label">Bank Name:</span> Palmpay</p>
-        <p><span class="label">Account Name:</span> CECILIA EDET MONDAY</p>
-        <p><span class="label">Account Number:</span> 8109898824</p>
-        <p><span class="label">Payment Reference:</span> <em>Swift Earnings Activation – YourUsername</em></p>
-      </div>
-
-      <div class="actions">
-        <a class="wa" href="https://wa.me/2348056857030" target="_blank" rel="noopener">Send proof on WhatsApp</a>
-        <button class="copy" onclick="copyAccount()">Copy account</button>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    function copyAccount(){
-      const text = 'Palmpay | CECILIA EDET MONDAY | 8109898824';
-      navigator.clipboard.writeText(text).then(()=>{ alert('Account details copied!'); })
-      .catch(()=>{ alert('Copy failed — long-press the account number to copy manually.') });
-    }
-  </script>
+  <section>
+    <h2 style="text-align:center;color:red;">💳 Fund Your Account</h2>
+    <div class="card">
+      <p><span class="label">Bank Name:</span> Opay</p>
+      <p><span class="label">Account Name:</span> EDET MONDAY AKPAN</p>
+      <p><span class="label">Account Number:</span> 8058299731</p>
+      <p><span class="label">Payment Reference:</span> <em>Swift Earnings Activation – YourUsername</em></p>
+      <p style="font-size:13px;color:silver">Example: Swift Earnings Activation – JohnDoe</p>
+    </div>
+    <div style="text-align:center;">
+      <a href="https://wa.me/2348056857030" target="_blank" class="wa">Send proof to WhatsApp</a>
+    </div>
+  </section>
 </body>
 </html>
