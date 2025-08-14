@@ -41,7 +41,7 @@
   <div class="container">
     <div class="card">
       <h2>Create Account</h2>
-      <form>
+      <form onsubmit="redirectDashboard(event)">
         <input type="text" placeholder="Full Name" required>
         <input type="email" placeholder="Email Address" required>
         <input type="password" placeholder="Password" required>
@@ -50,5 +50,12 @@
       <p>Already have an account? <a href="signin.html">Sign In</a></p>
     </div>
   </div>
+
+  <script>
+    function redirectDashboard(e) {
+      e.preventDefault(); // prevent default form submission
+      window.location.href = 'dashboard.html'; // redirect to dashboard
+    }
+  </script>
 </body>
 </html>
